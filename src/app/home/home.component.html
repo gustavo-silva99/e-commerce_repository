@@ -1,0 +1,99 @@
+<main class="p-6">
+  <section class="grid place-content-center lg:grid-cols-2 gap-4 lg:py-32">
+    <article class="flex flex-col max-w-xl mx-auto gap-2">
+      <h1 class="text-gray-950 font-bold text-4xl sm:text-5xl lg:text-7xl">
+        Compre computadores e acessórios
+      </h1>
+      <p class="text-lg md:text-xl text-gray-500">
+        Compre notebooks, desktopos, monitores, tablets, PC gamers, hard drives e stores, acessórios e mais
+      </p>
+      <button
+        class="text-gray-700 rounded-md border border-gray-500 px-4 py-2 w-fit focus:ring-4 focus:ring-gray-200"
+      >
+        Ver mais
+      </button>
+    </article>
+    <article
+      id="controls-carousel"
+      class="relative w-full max-w-screen-sm mx-auto"
+      data-carousel="static"
+    >
+      <!-- Carousel wrapper -->
+      <div class="relative h-56 overflow-hidden rounded-lg sm:h-96">
+        @for (productOffer of productOffers$ | async; track productOffer.id) {
+        <div
+          class="mt-8 sm:mt-28 lg:mt-24 hidden duration-700 ease-in-out"
+          data-carousel-item
+        >
+          <app-product-offer [product]="productOffer" />
+        </div>
+        }
+      </div>
+      <!-- Slider controls -->
+      <button
+        type="button"
+        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        data-carousel-prev
+      >
+        <span
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 group-hover:bg-gray-400 group-focus:ring-4 group-focus:ring-gray-300 group-focus:outline-none"
+        >
+          <svg
+            class="w-4 h-4 text-white rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 1 1 5l4 4"
+            />
+          </svg>
+          <span class="sr-only">Prévia</span>
+        </span>
+      </button>
+      <button
+        type="button"
+        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        data-carousel-next
+      >
+        <span
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 group-hover:bg-gray-400 group-focus:ring-4 group-focus:ring-gray-300 group-focus:outline-none"
+        >
+          <svg
+            class="w-4 h-4 text-white rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 9 4-4-4-4"
+            />
+          </svg>
+          <span class="sr-only">Próximo</span>
+        </span>
+      </button>
+    </article>
+  </section>
+  <section class="my-4 space-y-4 w-full">
+    <h2 class="text-center font-bold text-gray-950 text-3xl sm:text-4xl">
+      Escolha seu produto favorito
+    </h2>
+    <article
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+    >
+      @for (product of products$ | async; track product.id) {
+      <app-home-product [product]="product" />
+      }
+    </article>
+  </section>
+</main>
