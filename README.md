@@ -9,7 +9,7 @@ O app utiliza **dados mockados** para simular um catálogo de produtos, carrinho
 
 - **Angular** 17+
 - **TypeScript**
-- **Bootstrap / SCSS**
+- **Tailwind / SCSS**
 - **JSON Mock Data**
 - **Font Awesome / Bootstrap Icons**
 
